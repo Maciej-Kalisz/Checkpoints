@@ -54,7 +54,8 @@ def check_random():
     for k, v in count_dict.items():
         print(f"Count of {k}: {v}")
 
-    p_value = 1 - stats.chi2.cdf(chi_square, 9)
+    # Uses scipy to calculate the p value based on the chi-square value with 9 degrees of freedom
+    p_value = 1 - stats.chi2.cdf(chi_square, degrees_of_freedom := 9)
     print(f"The p-value was {p_value}")
 
     if p_value <= 0.05:
